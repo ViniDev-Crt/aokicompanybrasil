@@ -261,7 +261,7 @@ Este email foi enviado através do site Aoki Company Brasil
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-sm">Garantia de 2 anos</span>
+                  <span className="text-sm">Garantia de 6 meses</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
