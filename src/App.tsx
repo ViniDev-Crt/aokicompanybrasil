@@ -6,13 +6,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header/Header";
-import { Footer } from "@/components/Footer"; // ← IMPORTE O FOOTER AQUI
+import { Footer } from "@/components/Footer";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics"; // ← NOVA IMPORT
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      {/* ADICIONE O GOOGLE ANALYTICS AQUI */}
+      <GoogleAnalytics />
+      
       <Toaster />
       <Sonner />
       <BrowserRouter>
