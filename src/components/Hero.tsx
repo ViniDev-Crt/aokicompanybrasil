@@ -24,7 +24,7 @@ const Hero = () => {
               </h1>
               
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Bem vindo a Aoki Company Brasil,
+                Bem vindo a Aoki Company Brasil
 Fabricamos Robôs Banderinhas para Sinalização de Vias.
               </p>
             </div>
