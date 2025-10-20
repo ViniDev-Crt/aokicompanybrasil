@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, Mail, MapPin, Phone } from "lucide-react";
-import logo from "@/assets/logo.png"; // Altere para o logo da Aoki
+import logo from "@/assets/logo.png";
 
 export const Footer = () => {
   return (
     <footer className="border-t bg-muted/50">
       <div className="container px-4 py-12 md:px-6">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          {/* Logo & Description */}
-          <div className="space-y-4">
+          
+          <div className="space-y-4 md:col-span-2">
             <img src={logo} alt="Aoki Company Brasil" className="h-12 w-auto" />
             <p className="text-sm text-muted-foreground">
-              Líder em soluções industriais e tecnológicas de alta performance para o mercado brasileiro.
+              Fabricante de Robô e Bonecos para Sinalização.
             </p>
-            {/* Contatos */}
+            
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
@@ -30,9 +30,12 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Social & Contato */}
-          <div>
-            <h3 className="mb-4 text-sm font-semibold">Siga-nos</h3>
+        
+          <div className="hidden md:block"></div>
+
+          
+          <div className="flex flex-col items-center md:items-end">
+            <h3 className="mb-4 text-sm font-semibold text-center">Siga-nos</h3>
             <div className="flex space-x-4">
               <a
                 href="https://www.instagram.com/aokicompanybrasil/"
