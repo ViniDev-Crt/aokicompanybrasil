@@ -18,10 +18,10 @@ const Hero = () => {
                 Aoki Company Brasil
               </div>
               
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight">
-                Boneco Bandeira
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"> </span>
-              </h1>
+              <h2 className="text-4xl md:text-6xl font-bold text-foreground leading-tight">
+  Boneco Bandeira
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"> </span>
+              </h2>
               
               <p className="text-xl text-muted-foreground leading-relaxed">
                 Bem vindo a Aoki Company Brasil
