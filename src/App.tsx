@@ -8,7 +8,6 @@ import NotFound from "./pages/NotFound";
 import Header from "./components/Header/Header";
 import { Footer } from "@/components/Footer";
 import { useGoogleAnalytics } from "./hooks/useGoogleAnalytics";
-import SEOContent from "./components/SEOContent"; // ← IMPORTE O SEOContent
 
 const queryClient = new QueryClient();
 
@@ -37,8 +36,6 @@ const App = () => {
           {/* ADICIONE O FOOTER AQUI - vai aparecer em todas as páginas */}
           <Footer />
 
-          {/* ✅ COMPONENTE SEO - INVISÍVEL PARA USUÁRIOS */}
-          <SEOContent />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
