@@ -15,7 +15,7 @@ const Hero = () => {
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
                 <Zap className="w-4 h-4" />
-                Aoki Company Brasil - A PRIMEIRA fabricante no BRASIL.
+                Aoki Company Brasil - A Primeira fabricante no BRASIL.
               </div>
               
               {/* ✅ H1 CORRIGIDO - OTIMIZADO PARA SEO */}
