@@ -1,8 +1,77 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Zap, Settings } from "lucide-react";
+import { ArrowRight, Shield, Zap, Settings, X, Play } from "lucide-react";
 import heroVideo from "@/assets/robo-sinalizador.mp4";
+import { useState } from "react";
+
+// Array de imagens e vídeos da galeria
+const productImages = [
+  {
+    id: 1,
+    src: "/images/produto-1.jpg",
+    alt: "Robô Sinalizador com iluminação noturna",
+    title: "Operação Noturna",
+    type: "image"
+  },
+  {
+    id: 2,
+    src: "/images/produto-2.jpg",
+    alt: "Robô Sinalizador em operação durante o dia",
+    title: "Operação Diurna",
+    type: "image"
+  },
+  {
+    id: 3,
+    src: "/images/produto-3.jpg",
+    alt: "Detalhe do robô sinalizador operando em ambiente com chuva",
+    title: "Operando na Chuva",
+    type: "image"
+  },
+  {
+    id: 4,
+    src: "/images/produto-4.jpg",
+    alt: "Robô sinalizador em obra viária",
+    title: "Aplicação em Obras",
+    type: "image"
+  },
+  {
+    id: 5,
+    src: "/images/produto-5.jpg",
+    alt: "Vista lateral do robô sinalizador",
+    title: "Vista Lateral",
+    type: "image"
+  },
+  {
+    id: 6,
+    src: "/videos/mini-video.mp4", // Caminho para o mini vídeo
+    alt: "Robô sinalizador com bandeira em funcionamento",
+    title: "Sinalização com Bandeira",
+    type: "video"
+  }
+];
 
 const Hero = () => {
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+
+  const openModal = (index: number) => {
+    setSelectedImage(index);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
+
+  const goToNext = () => {
+    if (selectedImage !== null) {
+      setSelectedImage((selectedImage + 1) % productImages.length);
+    }
+  };
+
+  const goToPrev = () => {
+    if (selectedImage !== null) {
+      setSelectedImage((selectedImage - 1 + productImages.length) % productImages.length);
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-secondary">
       {/* Background Pattern */}
@@ -18,12 +87,10 @@ const Hero = () => {
                 Aoki Company Brasil - A Primeira fabricante no BRASIL.
               </div>
               
-              {/* ✅ H1 CORRIGIDO - OTIMIZADO PARA SEO */}
               <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight">
                 Boneco Bandeira | Robô Sinalizador Viário
               </h1>
               
-              {/* ✅ DESCRIÇÃO OTIMIZADA COM PALAVRAS-CHAVE */}
               <p className="text-xl text-muted-foreground leading-relaxed">
                 A Primeira Fabricante de Boneco bandeira / Robô Sinalizador do Brasil. 
                 Tecnologia 100% nacional com autonomia de 48h, operação 24/7 e máxima segurança.
@@ -63,7 +130,7 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Social Media Cards */}
+            {/* Social Media Cards - MANTIDOS ORIGINAIS */}
             <div className="space-y-6">
               <h2 className="text-2xl font-bold text-center text-foreground">
                 Entre em Contato
@@ -210,9 +277,157 @@ const Hero = () => {
                 </div>
               </div>
             </div>
+
+            {/* Galeria de Produtos - ATUALIZADA COM VÍDEO NO ID6 */}
+            <div className="mt-8">
+              <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
+                Galeria do Produto
+              </h3>
+              
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {productImages.map((item, index) => (
+                  <div
+                    key={item.id}
+                    className="group relative bg-card rounded-xl border shadow-card hover:shadow-lg transition-all duration-300 hover:translate-y-[-4px] cursor-pointer overflow-hidden"
+                    onClick={() => openModal(index)}
+                  >
+                    {/* Renderização condicional para imagem ou vídeo */}
+                    {item.type === "image" ? (
+                      // IMAGEM
+                      <div className="aspect-square bg-muted rounded-xl overflow-hidden">
+                        <img 
+                          src={item.src} 
+                          alt={item.alt}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        />
+                      </div>
+                    ) : (
+                      // VÍDEO (apenas no id6)
+                      <div className="aspect-square bg-muted rounded-xl overflow-hidden relative">
+                        <video 
+                          src={item.src}
+                          muted
+                          loop
+                          playsInline
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        />
+                        {/* Ícone de play sobre o vídeo */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="bg-background/80 rounded-full p-3">
+                            <Play className="w-6 h-6 text-primary fill-current" />
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* Overlay no hover */}
+                    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-all duration-300 rounded-xl flex items-center justify-center">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-background/80 rounded-full p-2">
+                        <ArrowRight className="w-5 h-5 text-primary" />
+                      </div>
+                    </div>
+                    
+                    {/* Título */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-background/80 backdrop-blur-sm p-2">
+                      <p className="text-sm font-medium text-foreground text-center">
+                        {item.title}
+                      </p>
+                      {item.type === "video" && (
+                        <p className="text-xs text-muted-foreground text-center">Vídeo</p>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Modal Expandido - ATUALIZADO PARA SUPORTAR VÍDEO */}
+      {selectedImage !== null && (
+        <div className="fixed inset-0 bg-background/95 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="relative max-w-7xl max-h-full w-full">
+            {/* Botão Fechar */}
+            <button
+              onClick={closeModal}
+              className="absolute -top-12 right-0 z-10 bg-card rounded-full p-2 hover:bg-accent transition-colors duration-200 shadow-lg"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {/* Botão Anterior */}
+            <button
+              onClick={goToPrev}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-card rounded-full p-3 hover:bg-accent transition-colors duration-200 shadow-lg"
+            >
+              <ArrowRight className="w-6 h-6 rotate-180" />
+            </button>
+
+            {/* Botão Próximo */}
+            <button
+              onClick={goToNext}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-card rounded-full p-3 hover:bg-accent transition-colors duration-200 shadow-lg"
+            >
+              <ArrowRight className="w-6 h-6" />
+            </button>
+
+            {/* Container do Conteúdo */}
+            <div className="bg-card rounded-2xl p-6 shadow-2xl max-h-[90vh] overflow-auto">
+              {/* Renderização condicional no modal */}
+              {productImages[selectedImage].type === "image" ? (
+                // IMAGEM NO MODAL
+                <div className="flex justify-center mb-6">
+                  <img 
+                    src={productImages[selectedImage].src} 
+                    alt={productImages[selectedImage].alt}
+                    className="max-w-full max-h-[70vh] w-auto h-auto object-contain rounded-lg"
+                  />
+                </div>
+              ) : (
+                // VÍDEO NO MODAL
+                <div className="flex justify-center mb-6">
+                  <video 
+                    src={productImages[selectedImage].src}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    controls
+                    className="max-w-full max-h-[70vh] w-auto h-auto rounded-lg"
+                  />
+                </div>
+              )}
+              
+              {/* Informações */}
+              <div className="text-center">
+                <div className="text-xl font-bold text-foreground mb-2">
+                  {productImages[selectedImage].title}
+                </div>
+                <div className="text-sm text-muted-foreground mb-4">
+                  {productImages[selectedImage].alt}
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  {productImages[selectedImage].type === "video" ? "Vídeo" : "Imagem"} {selectedImage + 1} de {productImages.length}
+                </div>
+              </div>
+              
+              {/* Indicadores */}
+              <div className="flex justify-center gap-2 mt-6">
+                {productImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedImage(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                      index === selectedImage ? 'bg-primary' : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
