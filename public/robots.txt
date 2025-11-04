@@ -1,4 +1,20 @@
-User-agent: Googlebot
+User-agent: *
+Allow: /
+
+# ✅ ADICIONAR ESTES para Google Ads e Analytics
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: Google-InspectionTool
 Allow: /
 
 User-agent: Bingbot
@@ -9,9 +25,5 @@ Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
-
-User-agent: *
-Allow: /
-
 
 Sitemap: https://www.aokicompanybrasil.com.br/sitemap.xml
