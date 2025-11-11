@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Zap, Settings, X, Play } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroVideo from "@/assets/robo-sinalizador.mp4";
 import { useState } from "react";
 
@@ -130,7 +131,7 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Social Media Cards - MANTIDOS ORIGINAIS */}
+            {/* Social Media Cards - ATUALIZADO */}
             <div className="space-y-6">
               <h2 className="text-2xl font-bold text-center text-foreground">
                 Entre em Contato
@@ -210,25 +211,29 @@ const Hero = () => {
                   </div>
                 </a>
 
-                {/* Card Mercado Livre */}
-                <a 
-                  href="https://www.mercadolivre.com.br" 
-                  target="_blank"
-                  rel="noopener noreferrer"
+                {/* ✅ CARD PÁGINA DE VENDAS - NOVO (substitui Mercado Livre) */}
+                <Link 
+                  to="/boneco-sinalizacao"
                   className="block"
                 >
                   <div className="group p-6 bg-card rounded-xl border shadow-card hover:shadow-lg transition-all duration-300 hover:translate-y-[-4px] text-center h-full">
-                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform border">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                       <img 
-                        src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.18.9/mercadolibre/logo__large_plus.png" 
-                        alt="Mercado Livre" 
+                        src="/logo.png" 
+                        alt="Aoki Company Brasil" 
                         className="w-8 h-8 object-contain"
                       />
                     </div>
-                    <h3 className="font-semibold text-foreground">Mercado Livre</h3>
-                    <p className="text-sm text-muted-foreground mt-2">Compre pelo marketplace</p>
+                    <h3 className="font-semibold text-foreground">Compre Agora</h3>
+                    <p className="text-sm text-muted-foreground mt-2">Página oficial de vendas</p>
+                    <div className="mt-2">
+                      <span className="inline-flex items-center gap-1 text-green-600 text-sm font-semibold">
+                        R$ 4.900,00
+                        <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
                   </div>
-                </a>
+                </Link>
 
                 {/* Card Email/Contato */}
                 <a 
