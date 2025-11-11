@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react";
+import { Link } from "react-router-dom"; // ✅ IMPORTE O LINK
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -84,6 +85,15 @@ const Header = () => {
                   {item.label}
                 </button>
               ))}
+              
+              {/* ✅ BOTÃO "COMPRE AQUI" NOVO */}
+              <Link 
+                to="/boneco-sinalizacao"
+                className="flex items-center gap-2 bg-green-600 text-white hover:bg-green-700 transition-colors duration-200 font-medium px-4 py-2 rounded-lg"
+              >
+                <ShoppingCart className="w-4 h-4" />
+                Compre Aqui
+              </Link>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -114,6 +124,16 @@ const Header = () => {
                     {item.label}
                   </button>
                 ))}
+                
+                {/* ✅ BOTÃO "COMPRE AQUI" PARA MOBILE */}
+                <Link 
+                  to="/boneco-sinalizacao"
+                  className="flex items-center justify-center gap-2 bg-green-600 text-white hover:bg-green-700 transition-colors duration-200 font-medium px-4 py-3 rounded-lg text-center"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <ShoppingCart className="w-4 h-4" />
+                  Compre Aqui
+                </Link>
               </nav>
             </div>
           </div>
