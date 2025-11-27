@@ -148,7 +148,7 @@ Podemos finalizar a compra?`;
             Boneco de Sinalização Viária
           </h1>
           <p className="text-xl text-gray-600">
-            Boneco Sinalizador Viário Bandeirinha Articulado - Manequim Controlador de Tráfego para Obras - Material em Polietileno Resistente às Intempéries - Colete Refletivo NBR 15292 Alta Visibilidade Diurna e Noturna - Base Estável - Ideal para Sinalização de Obras Rodoviárias, Vias Urbanas, Controle de Mão Única, Desvios, Manutenção Viária e Segurança no Trânsito.
+            Boneco Bandeirinha Sinalizador Viário Articulado - Robô Sinalizador para Obras - Boneco de Sinalização em Polietileno Resistente -  Ideal para Controle de Tráfego e Segurança Viária
           </p>
         </div>
 
