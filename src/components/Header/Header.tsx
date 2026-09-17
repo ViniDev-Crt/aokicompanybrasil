@@ -92,7 +92,7 @@ const Header = () => {
                 className="flex items-center gap-2 bg-green-600 text-white hover:bg-green-700 transition-colors duration-200 font-medium px-4 py-2 rounded-lg"
               >
                 <ShoppingCart className="w-4 h-4" />
-                Robô
+                Compre Aqui
               </Link>
 
             </nav>
@@ -135,7 +135,7 @@ const Header = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <ShoppingCart className="w-4 h-4" />
-                  Boneco Articulado
+                  Compre Aqui
                 </Link>
 
               </nav>
