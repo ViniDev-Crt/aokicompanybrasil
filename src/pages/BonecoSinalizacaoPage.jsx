@@ -148,7 +148,7 @@ Podemos finalizar a compra?`;
             Boneco de Sinalização Viária
           </h1>
           <p className="text-xl text-gray-600">
-            Boneco Bandeirinha Sinalizador Viário Articulado - Robô Sinalizador para Obras - Boneco de Sinalização em Polietileno Resistente -  Ideal para Controle de Tráfego e Segurança Viária
+            Boneco Bandeirinha Sinalizador Viário Automatizado - Robô Sinalizador para Obras - Boneco de Sinalização em Polietileno Resistente -  Ideal para Controle de Tráfego e Segurança Viária
           </p>
         </div>
 

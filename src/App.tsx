@@ -1,4 +1,4 @@
-// src/App.tsx - garanta que está assim:
+// src/App.tsx - VERSÃO ATUALIZADA COM NOVAS ROTAS
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,13 +11,14 @@ import HeaderVendas from "./components/Header/HeaderVendas";
 import { Footer } from "@/components/Footer";
 import { useGoogleAnalytics } from "./hooks/useGoogleAnalytics";
 import BonecoSinalizacaoPage from "./pages/BonecoSinalizacaoPage";
+import ManuaisPage from "./pages/ManuaisPage";
 
 const queryClient = new QueryClient();
 
 const AppContent = () => {
   const location = useLocation();
   
-  // Usar HeaderVendas apenas na página de vendas
+  // Usar HeaderVendas na página de venda
   const isPaginaVendas = location.pathname === '/boneco-sinalizacao';
   const HeaderComponent = isPaginaVendas ? HeaderVendas : Header;
 
@@ -29,6 +30,7 @@ const AppContent = () => {
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/boneco-sinalizacao" element={<BonecoSinalizacaoPage />} />
+          <Route path="/manuais" element={<ManuaisPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

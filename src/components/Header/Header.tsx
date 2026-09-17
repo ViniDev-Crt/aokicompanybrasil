@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ShoppingCart } from "lucide-react";
-import { Link } from "react-router-dom"; // ✅ IMPORTE O LINK
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,7 +15,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // FUNÇÃO NOVA - Scroll para o topo (Home)
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -27,7 +26,7 @@ const Header = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 80; // Altura do header
+      const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -49,33 +48,32 @@ const Header = () => {
     <>
       <header className={`
         fixed top-0 left-0 right-0 z-50 transition-all duration-300
-        ${isScrolled 
-          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm" 
+        ${isScrolled
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
           : "bg-transparent"
         }
       `}>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            {/* Logo com imagem - AGORA CLICÁVEL */}
-            <button 
+            {/* Logo */}
+            <button
               onClick={scrollToTop}
               className="flex items-center gap-3 hover:opacity-80 transition-opacity"
             >
               <div className="flex items-center justify-center">
-                {/* Logo da empresa */}
-                <img 
-                  src="/logo.png" 
-                  alt="Aoki Company Brasil" 
+                <img
+                  src="/logo.png"
+                  alt="Aoki Company Brasil"
                   className="w-24 h-24 object-contain"
                 />
               </div>
-              <span className="font-bold text-xl text-foreground">
+              <span className="font-bold text-xl text-foreground hidden sm:inline">
                 Aoki Company Brasil
               </span>
             </button>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-6">
+            <nav className="hidden md:flex items-center gap-4">
               {navItems.map((item) => (
                 <button
                   key={item.id}
@@ -85,15 +83,18 @@ const Header = () => {
                   {item.label}
                 </button>
               ))}
-              
-              {/* ✅ BOTÃO "COMPRE AQUI" NOVO */}
-              <Link 
+
+
+
+              {/* Botão Boneco Articulado */}
+              <Link
                 to="/boneco-sinalizacao"
                 className="flex items-center gap-2 bg-green-600 text-white hover:bg-green-700 transition-colors duration-200 font-medium px-4 py-2 rounded-lg"
               >
                 <ShoppingCart className="w-4 h-4" />
-                Compre Aqui
+                Robô
               </Link>
+
             </nav>
 
             {/* Mobile Menu Button */}
@@ -124,23 +125,25 @@ const Header = () => {
                     {item.label}
                   </button>
                 ))}
-                
-                {/* ✅ BOTÃO "COMPRE AQUI" PARA MOBILE */}
-                <Link 
+
+
+
+                {/* Botão Boneco Articulado - Mobile */}
+                <Link
                   to="/boneco-sinalizacao"
                   className="flex items-center justify-center gap-2 bg-green-600 text-white hover:bg-green-700 transition-colors duration-200 font-medium px-4 py-3 rounded-lg text-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <ShoppingCart className="w-4 h-4" />
-                  Compre Aqui
+                  Boneco Articulado
                 </Link>
+
               </nav>
             </div>
           </div>
         )}
       </header>
 
-      {/* Espaço para compensar a altura fixa do header */}
       <div className="h-16" />
     </>
   );
